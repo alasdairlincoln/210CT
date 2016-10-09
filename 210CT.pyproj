@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{346ef47e-66a2-4b54-b9d4-59b658848f3b}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>Question 4.py</StartupFile>
+    <StartupFile>Question 3.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -21,6 +21,9 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Question 3.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Question 1.py" />
     <Compile Include="Question 2.py" />
     <Compile Include="Question 4.py" />
