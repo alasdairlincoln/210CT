@@ -9,7 +9,6 @@ while done == False:
         array.append(user)
         
     except ValueError:
-        print(array)
         done = True
 
 print("This is the original array of numbers: ",array)
