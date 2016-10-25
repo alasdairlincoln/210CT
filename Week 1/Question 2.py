@@ -7,7 +7,7 @@ while userinput == False:
         userinput = True
     except ValueError:
         print("Please enter a factorial number (don't include the !)")
-        
+
 while factnumber != 0:
     factnumber = factnumber/5
     trailing = trailing + int(factnumber)

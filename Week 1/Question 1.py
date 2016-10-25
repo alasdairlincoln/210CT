@@ -7,7 +7,7 @@ while done == False:
     try:
         user = int(input("Please enter a number into the array: "))
         array.append(user)
-        
+
     except ValueError:
         done = True
 
@@ -23,11 +23,10 @@ for i in range(len(array)):
         else:
             used.append(rand)
             randin = False
-            
+
     newarray.append(array[rand])
 
 if array == newarray:
     print("Error: List not shuffled, please try again.")
-    
-print("This is the shuffled array of numbers",newarray)
 
+print("This is the shuffled array of numbers",newarray)
