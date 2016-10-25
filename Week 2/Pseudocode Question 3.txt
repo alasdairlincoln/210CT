@@ -1,0 +1,18 @@
+matrixAddition(B,C)
+	B + C
+	return(D)
+
+matrixSubtraction(B,C)
+	B-C
+	return(D)
+
+matrixMultiplication(B,C)
+	B*C
+	return(D)
+
+B <-- INPUT matrix1
+C <-- INPUT matrix2
+
+A <--  call matrixSubtraction((call matrixMultiplication(B,C)),(2*(call matrixAddition(B,C))
+
+print A

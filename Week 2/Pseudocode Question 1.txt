@@ -1,0 +1,5 @@
+Input parameter to use in calculations
+
+x <- root(userparameter)
+y <- integer(x)
+print y²
