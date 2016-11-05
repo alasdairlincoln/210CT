@@ -1,19 +1,28 @@
 #setting up variables
 from random import *
-array = []
-done = False
 newarray = []
 used = []
 
-print("To finish entering numbers please enter a non integer.") #used to help the user
-
+def create_array():
+    '''A function which asks the user to enter numbers into an array, the user
+    can carry on entering numbers as long as they want. All the inputs are checked to
+    make sure they are an integer.'''
+    array = []
+    done = False
+    print("To finish entering numbers please enter a non integer.")#used to help the user
 #a while loop to get the user to enter numbers into the array, the input is also validated to make sure its usable
-while done == False:
-    try:
-        user = int(input("Please enter a number into the array: "))
-        array.append(user)
-    except ValueError:
-        done = True
+    while done == False:
+        try:
+            user = int(input("Please enter a number into the array: "))
+            array.append(user)
+
+        except ValueError:
+            done = True
+            return array
+
+array = create_array()
+
+
 
 print("This is the original array of numbers: ",array) #outputs the users inputted array so they can compare it to the final output
 

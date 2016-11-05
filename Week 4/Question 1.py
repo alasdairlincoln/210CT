@@ -1,6 +1,9 @@
 from math import *
 
 def create_array():
+    '''A function which asks the user to enter numbers into an array, the user
+    can carry on entering numbers as long as they want. All the inputs are checked to
+    make sure they are an integer.'''
     array = []
     done = False
     print("Please enter a sorted list of numbers")
