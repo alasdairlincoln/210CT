@@ -16,12 +16,33 @@ def create_array():
             return array
 
 def extract_asc(list):
-    if array = []:
+    if array == []:
         return array
     else:
-        for i in range (0,len(array-1)):
-            if array[i] < array [i+1]:
-                array(i) = []
-                array(i).append(array[[i]])
+        subarray=[]
+        counter = 0
+        for i in range(0, (len(array)-1)):
+            if array[i] < array[i+1]:
+                subarray.append(i)
+            else:
+                counter = i
+
+        return subarray
+
+
+
+        #while array[end-1] <= array[end]:
+        #    print("start",array[start],"end", array[end],"i", i)
+        #    subarray[i] = array[start:end]
+        #    print(subarray)
+        #    end = end + 1
+#
+#            if end > (len(array)-1):
+#                return subarray
+#
+#        start = end
+#        end = end + 1
+#        i = i + 1
 
 array = create_array()
+print(extract_asc(array))
