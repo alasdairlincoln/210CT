@@ -1,0 +1,20 @@
+binarySearch(array, lowerInterval, higherInterval)
+  if length(array) == 1
+        midpoint <- array[0]
+  else
+        mid <- roundup(length(array)/2)
+
+  if lowerInterval < mid and higherInterval > mid or mid == lowerInterval or mid == higherInterval
+        print True
+  else if lowerInterval < mid and higherInterval > mid
+        return binarySearch(array[0:mid], lowerInterval, higherInterval)
+  else if lowerInterval > mid and higherInterval > mid
+        return binarySearch(array[mid:],lowerInterval, higherInterval)
+  else
+        print False
+
+lowernumber <- input "Enter a low number"
+highernumber <- input "Enter a high number"
+array <- int(input "Enter an array of numbers")
+
+binarySearch(array, lowerNumber, higherNumber)

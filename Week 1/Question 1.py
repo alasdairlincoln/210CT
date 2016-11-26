@@ -1,4 +1,3 @@
-#setting up variables
 from random import *
 newarray = []
 used = []
@@ -22,9 +21,7 @@ def create_array():
 
 array = create_array()
 
-
-
-print("This is the original array of numbers: ",array) #outputs the users inputted array so they can compare it to the final output
+print("This is the original array of numbers: ",array)
 
 #a for loop that itterates over the array
 for i in range(len(array)):
@@ -42,4 +39,4 @@ for i in range(len(array)):
 if array == newarray:
     print("Error: List not shuffled, please try again.")
 
-print("This is the shuffled array of numbers",newarray) #outputs the end result
+print("This is the shuffled array of numbers",newarray)

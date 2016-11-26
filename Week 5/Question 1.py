@@ -16,33 +16,19 @@ def create_array():
             return array
 
 def extract_asc(list):
-    if array == []:
+    #create new list to store the subsequence
+    listOfSequence = []
+    if len(array) == 0:
         return array
     else:
-        subarray=[]
-        counter = 0
-        for i in range(0, (len(array)-1)):
-            if array[i] < array[i+1]:
-                subarray.append(i)
-            else:
-                counter = i
-
-        return subarray
-
-
-
-        #while array[end-1] <= array[end]:
-        #    print("start",array[start],"end", array[end],"i", i)
-        #    subarray[i] = array[start:end]
-        #    print(subarray)
-        #    end = end + 1
-#
-#            if end > (len(array)-1):
-#                return subarray
-#
-#        start = end
-#        end = end + 1
-#        i = i + 1
+        for i in range (0,len(array-1)):
+            #number = number +1
+            #in ascending order i can be equal to i+1
+            if array[i] < array [i+1]:
+                listOfSequence.append(i)
+                array(i) = []
+                array(i).append(array[[i]])
+                #print largest subsequence (largest list inside your list
+                #if two or more of same size that are largest, print them all
 
 array = create_array()
-print(extract_asc(array))

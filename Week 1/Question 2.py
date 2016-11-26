@@ -1,4 +1,3 @@
-#setting up variables
 userinput = False
 trailing = 0
 
@@ -10,8 +9,8 @@ while userinput == False:
     except ValueError:
         print("Please enter a factorial number (don't include the !)")
 
-
-while factnumber != 0:
+#while loop to
+while factnumber >= 1 :
     factnumber = factnumber/5
     trailing = trailing + int(factnumber)
 
