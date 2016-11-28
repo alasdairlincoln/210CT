@@ -26,17 +26,27 @@ def postorder(tree):
         postorder(tree.left)
     if(tree.right!=None):
         postorder(tree.right)
-    print tree.value
+    else:
+        print(tree.value)
 
 
 def in_order(tree):
-    if(tree.left!=None):
-        in_order(tree.left)
-    print tree.value
-    if(tree.right!=None):
-        in_order(tree.right)
-        
-#use stack, go left until no longer avaliavle (adding to stack all the way), pop last stack item and work way back through
+    top = tree
+    List = []
+    treeprinted = False
+    while treeprinted == False:
+        if top != None:
+            List.append(top)
+            top = top.left
+
+        else:
+            if len(List) > 0:
+                top = List.pop()
+                print(top.value)
+                top = top.right
+
+            else:
+                treeprinted = True
 
 if __name__ == '__main__':
 

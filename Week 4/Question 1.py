@@ -28,7 +28,13 @@ def binary_search(array, low, high):
     if len(array) == 1:
         mid = array[0]
     else:
-        mid = int(ceil(len(array)/2))
+        mid = int((len(array)/2))
+
+    if  array:
+        print(False, "There is no number inbetween", low, "and", high)
+        return
+
+
 
     if low < mid and high > mid or mid == low or mid == high:
         print(True, "There is a number between", low, "and", high)
