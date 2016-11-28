@@ -15,20 +15,46 @@ def create_array():
             done = True
             return array
 
-def extract_asc(list):
-    #create new list to store the subsequence
+def extract_asc(List):
+    '''Takes a list of integers and splits it up into sublists of max length in ascending order'''
     listOfSequence = []
-    if len(array) == 0:
-        return array
+    temp = []
+    if len(List) == 0:
+        return List
     else:
-        for i in range (0,len(array-1)):
-            #number = number +1
-            #in ascending order i can be equal to i+1
-            if array[i] < array [i+1]:
-                listOfSequence.append(i)
-                array(i) = []
-                array(i).append(array[[i]])
-                #print largest subsequence (largest list inside your list
-                #if two or more of same size that are largest, print them all
+        for i in range (0,len(List)):
+
+            if i == len(List)-1:
+                temp.append(List[i])
+                listOfSequence.append(temp)
+                return listOfSequence
+            else:
+                if List[i] <= List [i+1]:
+                    temp.append(List[i])
+
+                else:
+                    temp.append(List[i])
+                    listOfSequence.append(temp)
+                    temp = []
+
+def find_largest(List):
+    '''Takes a list of sub lists and outputs the longest list(s)'''
+    highest = len([])
+    index = []
+    for i in range (0,len(List)):
+        if len(List[i]) == highest:
+            index.append(List[i])
+
+        elif len(List[i]) > highest:
+            highest = len(List[i])
+            if index != []:
+                index = []
+                index.append(List[i])
+            else:
+                index.append(List[i])
+
+    print(index)
+    return
 
 array = create_array()
+find_largest(extract_asc(array))

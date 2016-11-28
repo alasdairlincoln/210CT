@@ -8,6 +8,7 @@ class List(object):
   def __init__(self):
       self.head=None
       self.tail=None
+
   def insert(self,n,x):
       #Not actually perfect: how do we prepend to an existing list?
       if n!=None:
@@ -21,6 +22,7 @@ class List(object):
           x.prev=x.next=None
       elif self.tail==n:
           self.tail=x
+          
   def display(self):
       values=[]
       n=self.head
@@ -29,8 +31,16 @@ class List(object):
           n=n.next
       print("List:"," "," " .join(values))
 
-  def delete(self):
-      
+  def delete(self, n):
+      if n.prev != 0:
+          n.prev.next = n.next
+      else:
+         l.head = n.next
+      if n.next != 0:
+          n.next.prev = n.prev
+      else:
+          l.tail = n.prev
+
 
 
 if __name__ == '__main__':
@@ -39,4 +49,5 @@ if __name__ == '__main__':
   l.insert(l.head,Node(6))
   l.insert(l.head,Node(8))
   l.display()
-  l.delete()
+  l.delete(l.head)
+  l.display()
