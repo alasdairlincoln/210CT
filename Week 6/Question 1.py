@@ -35,6 +35,8 @@ def in_order(tree):
     print tree.value
     if(tree.right!=None):
         in_order(tree.right)
+        
+#use stack, go left until no longer avaliavle (adding to stack all the way), pop last stack item and work way back through
 
 if __name__ == '__main__':
 
