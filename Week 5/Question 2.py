@@ -31,32 +31,60 @@ class List(object):
           n=n.next
       print("List:"," "," " .join(values))
 
-  def delete(self, n):
+  def delete(self, ndelete):
+      '''Method to delete a node from the list, '''
+      if self.head == None:
+          print("The list is empty, please add nodes to the list first")
+          return
 
-      
+      n = self.head
+      found = False
 
-      #if n.prev != None:
-          #n.next.prev = n.prev
-          #n.prev.next = n.next
+      while found == False:
+          if n.value == ndelete:
 
-      #else:
-         #l.tail = n.next
-         #n.next.prev = None
+              if n.prev == None:
+                  l.head = n.next
 
-      #if n.next != None:
-          #n.next.prev = n.prev
-          #n.prev.next = n.next
-      #else:
-        #  l.head = n.prev
-         # n.prev.next = None
+              else:
+                  n.prev.next = n.next
+
+              if n.next == None:
+                  l.tail = n.prev
+
+              else:
+                  n.next.prev = n.prev
+              del(n)
+              found = True
 
 
+          elif n.next == None:
+              print("The node you are trying to delete doesnt exist")
+              return
+
+          else:
+              n = n.next
+
+def inputNumber():
+    '''Simple function to get the user to input an integer, it wont accept any other
+    data other than an integer and wont let the user continue until they do so.
+    Returns the users inputted number'''
+
+    userinput = False
+    while userinput == False:
+        try:
+            number = int(input("Please enter an  integer: "))
+            userinput = True
+        except ValueError:
+            print("Please enter a number (It must be an integer)")
+    return number
 
 if __name__ == '__main__':
   l=List()
-  l.insert(None, Node(4))
-  l.insert(l.head,Node(6))
-  l.insert(l.head,Node(8))
+  #l.insert(None, Node(4))
+  #l.insert(l.head,Node(6))
+  #l.insert(l.head,Node(8))
   l.display()
-  l.delete(6)
+  number = inputNumber()
+  l.delete(number)
   l.display()
