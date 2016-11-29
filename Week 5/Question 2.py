@@ -32,7 +32,8 @@ class List(object):
       print("List:"," "," " .join(values))
 
   def delete(self, ndelete):
-      '''Method to delete a node from the list, '''
+      '''Method to delete a node from the list, makes sure the list isnt empty and alerts
+      the user if it is, also alerts the user if the node they are trying to delete doesnt exist'''
       if self.head == None:
           print("The list is empty, please add nodes to the list first")
           return
@@ -81,9 +82,9 @@ def inputNumber():
 
 if __name__ == '__main__':
   l=List()
-  #l.insert(None, Node(4))
-  #l.insert(l.head,Node(6))
-  #l.insert(l.head,Node(8))
+  l.insert(None, Node(4))
+  l.insert(l.head,Node(6))
+  l.insert(l.head,Node(8))
   l.display()
   number = inputNumber()
   l.delete(number)

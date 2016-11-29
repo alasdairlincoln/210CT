@@ -2,14 +2,20 @@ binarySearch(array, lowerInterval, higherInterval)
   if length(array) == 1
         midpoint <- array[0]
   else
-        mid <- roundup(length(array)/2)
+        mid <- (length(array)/2)
 
   if lowerInterval < mid and higherInterval > mid or mid == lowerInterval or mid == higherInterval
-        print True
-  else if lowerInterval < mid and higherInterval > mid
+        for i in range lowerInterval to higherInterval
+            if i in array
+                print True
+        print False
+
+  else if lowerInterval < array[mid] and higherInterval > array[mid]
         return binarySearch(array[0:mid], lowerInterval, higherInterval)
+
   else if lowerInterval > mid and higherInterval > mid
         return binarySearch(array[mid:],lowerInterval, higherInterval)
+
   else
         print False
 

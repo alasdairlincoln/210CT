@@ -18,6 +18,8 @@ def create_array():
             return array
 
 def sort_array(list):
+    '''Simply sorts the entered list to make sure it is sorted before
+    being passed into the binary serch function'''
     if list == []: #Checks if the list is empty
         return []
     else:
@@ -25,54 +27,68 @@ def sort_array(list):
         return list
 
 def binary_search(array, low, high):
-    if len(array) == 1:
+
+    length = len(array)
+
+    if length == 1:
         mid = array[0]
     else:
-        mid = int((len(array)/2))
+        mid = int((length)/2)
 
-    if  array:
-        print(False, "There is no number inbetween", low, "and", high)
+    if high < array[0] or low > array[length -1]: #prints false because interval is outside of list
+        print(False, "There is no number between", low, "and", high)
         return
 
-
-
-    if low < mid and high > mid or mid == low or mid == high:
-        print(True, "There is a number between", low, "and", high)
-        return
-    elif low < mid and high < mid:
-        return binary_search(array[0:mid], low, high)
-    elif low > mid and high > mid:
-        return binary_search(array[mid:], low, high)
     else:
-        print(False, "There is no number inbetween", low, "and", high)
-        return
+        if low <= array[mid] and high >= array[mid]:
+            for i in range (low , high):
+                if i in array:
+                    print(True, "There is a number between",low, "and", high)
+                    return
+                else:
+                    pass
+            print(False, "There is no number between",low, "and", high)
+
+        elif low < mid and high < mid:
+            return binary_search(array[0:mid], low, high)
+
+        elif low > mid and high > mid:
+            return binary_search(array[mid:], low, high)
+
+        else:
+            print(False, "There is no number between",low, "and",high)
+
+def lowAndhighInput():
+    '''Function to get the user to enter a lower and higher bound. The user must
+    enter an integer for both and the 2 numbers must not be equal or the the low
+    number be higher than the high number (vice versa)'''
+    lowAndhigh = False
+    while lowAndhigh == False:
+        low = False
+        while low == False:
+            try:
+                lownumber = int(input("Please enter the lower bound: "))
+                low = True
+
+            except ValueError:
+                print("Please enter a integer")
+
+        high = False
+        while high == False:
+            try:
+                highnumber = int(input("Please enter the upper bound: "))
+                high = True
+
+            except ValueError:
+                print("Please enter a integer")
+
+        if lownumber == highnumber or lownumber > highnumber:
+            print("Please make sure the lower and upper bounds are entered correctly")
+        else:
+            lowAndhigh = True
+            return lownumber, highnumber
 
 array = create_array()
 sortedArray = sort_array(array)
-
-lowAndhigh = False
-while lowAndhigh == False:
-    low = False
-    while low == False:
-        try:
-            lownumber = int(input("Please enter the lower bound: "))
-            low = True
-
-        except ValueError:
-            print("Please enter a integer")
-
-    high = False
-    while high == False:
-        try:
-            highnumber = int(input("Please enter the upper bound: "))
-            high = True
-
-        except ValueError:
-            print("Please enter a integer")
-
-    if lownumber == highnumber or lownumber > highnumber:
-        print("Please make sure the lower and upper bounds are entered correctly")
-    else:
-        lowAndhigh = True
-
+lownumber, highnumber = lowAndhighInput()
 binary_search(sortedArray, lownumber, highnumber)
