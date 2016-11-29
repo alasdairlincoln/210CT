@@ -32,20 +32,23 @@ class List(object):
       print("List:"," "," " .join(values))
 
   def delete(self, n):
-      if n.prev != 0:
-          n.next.prev = n.prev
-          n.prev.next = n.next
 
-      else:
-         l.tail = n.next
-         n.next.prev = None
+      
 
-      if n.next != 0:
-          n.next.prev = n.prev
-          n.prev.next = n.next
-      else:
-          l.head = n.prev
-          n.prev.next = None
+      #if n.prev != None:
+          #n.next.prev = n.prev
+          #n.prev.next = n.next
+
+      #else:
+         #l.tail = n.next
+         #n.next.prev = None
+
+      #if n.next != None:
+          #n.next.prev = n.prev
+          #n.prev.next = n.next
+      #else:
+        #  l.head = n.prev
+         # n.prev.next = None
 
 
 
@@ -55,5 +58,5 @@ if __name__ == '__main__':
   l.insert(l.head,Node(6))
   l.insert(l.head,Node(8))
   l.display()
-  l.delete(Node(6))
+  l.delete(6)
   l.display()
