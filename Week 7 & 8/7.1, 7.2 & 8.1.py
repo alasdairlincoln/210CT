@@ -34,11 +34,11 @@ class Graph(object):
         vertex = v.value
         stack.append(vertex)
         while stack != []:
-            temp = stack.pop()
-            if temp not in visited:
-                visited.append(temp)
-                for edges in vertice[temp].connectedTo:
-                    stack.append(edges)
+            temp = stack.pop()#removes the last item from the stack because its LIFO
+            if temp not in visited:#makes sure the node hasnt already been visited
+                visited.append(temp)#appends the node to list of visited
+                for edges in vertice[temp].connectedTo:#itterates through the connected nodes
+                    stack.append(edges)#appends all the connected nodes to the stack
         return visited
 
     def BFS(self, v):
@@ -49,11 +49,11 @@ class Graph(object):
         vertex = v.value
         Queue.append(vertex)
         while Queue != []:
-            temp = Queue.pop(0)
-            if temp not in visited:
-                visited.append(temp)
-                for edges in vertice[temp].connectedTo:
-                    Queue.append(edges)
+            temp = Queue.pop(0)#removes the first item from the Queue because its FIFO
+            if temp not in visited:#makes sure the node hasnt already been visited
+                visited.append(temp)#appends the node to list of visited
+                for edges in vertice[temp].connectedTo:#itterates through the connected nodes
+                    Queue.append(edges)#appends all the connected nodes to the Queue
         return visited
 
 class Vertex(object):

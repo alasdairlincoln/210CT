@@ -1,5 +1,6 @@
 Input parameter to use in calculations
 
-x <- root(userparameter)
-y <- integer(x)
-print y²
+rootnumb <- root(userparameter)
+rootnumb <- round down(rootnumb)
+squarenumb <- rootnumb * rootnumb
+print squarenumb

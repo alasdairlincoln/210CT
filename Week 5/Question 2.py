@@ -6,11 +6,12 @@ class Node(object):
 
 class List(object):
   def __init__(self):
+      '''When the list class is first called the head and tail are set to None'''
       self.head=None
       self.tail=None
 
   def insert(self,n,x):
-      #Not actually perfect: how do we prepend to an existing list?
+
       if n!=None:
           x.next=n.next
           n.next=x
@@ -42,29 +43,30 @@ class List(object):
       found = False
 
       while found == False:
-          if n.value == ndelete:
+          if n.value == ndelete:#checks to see if the current node is the one that is to be deleted
 
-              if n.prev == None:
-                  l.head = n.next
-
-              else:
-                  n.prev.next = n.next
-
-              if n.next == None:
-                  l.tail = n.prev
+              if n.prev == None: #checks to see if the node to be deleted is the head
+                  l.head = n.next #asigns the new head
 
               else:
-                  n.next.prev = n.prev
-              del(n)
+                  n.prev.next = n.next#if it isnt the head then it points to the next node
+
+              if n.next == None:#checks to see if the node is the tail
+                  l.tail = n.prev#asigns the new tail
+
+              else:
+                  n.next.prev = n.prev#if it isnt the tail then it points to the previous node
+
+              del(n)#the node is then deleted
               found = True
 
 
-          elif n.next == None:
+          elif n.next == None:#the current node is at the end of the list and the node to be deleted hasnt been found hence it doesnt exist
               print("The node you are trying to delete doesnt exist")
               return
 
           else:
-              n = n.next
+              n = n.next #moves onto the next node
 
 def inputNumber():
     '''Simple function to get the user to input an integer, it wont accept any other
@@ -74,10 +76,10 @@ def inputNumber():
     userinput = False
     while userinput == False:
         try:
-            number = int(input("Please enter an  integer: "))
+            number = int(input("Please enter a node to delete: "))
             userinput = True
         except ValueError:
-            print("Please enter a number (It must be an integer)")
+            print("Please enter a node to be deleted (It must be an integer)")
     return number
 
 if __name__ == '__main__':

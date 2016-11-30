@@ -1,14 +1,34 @@
 matrixAddition(B,C)
-	B + C
-	return(D)
+	for i in B
+		for j in i
+			d[i] <- j
+
+	for i in C
+		for j in i
+			d[i] <- d[i] + j
+
+return(d)
 
 matrixSubtraction(B,C)
-	B-C
-	return(D)
+	for i in B
+		for j in i
+			d[i] <- j
+
+	for i in C
+		for j in i
+			d[i] <- d[i] - j
+
+return(d)
 
 matrixMultiplication(B,C)
-	B*C
-	return(D)
+	for i in B
+		for j in i
+			d[i] <- j
+
+	for i in C
+		for j in i
+			d[i] <- d[i] * j
+
 
 B <-- INPUT matrix1
 C <-- INPUT matrix2

@@ -1,6 +1,8 @@
 class BinTreeNode(object):
 
     def __init__(self, value):
+        '''When the class is called the value that is passed into it is
+        saved as an instance of the class, left and right are also set to none'''
         self.value=value
         self.left=None
         self.right=None
@@ -31,19 +33,20 @@ def postorder(tree):
 
 
 def in_order(tree):
-    top = tree
-    List = []
+    '''Method to print the tree in order'''
+    top = tree #asigns the paramater to a variable called top
+    List = []#creates an empty list
     treeprinted = False
     while treeprinted == False:
-        if top != None:
+        if top != None: #makes sure the tree hasnt been traversed
             List.append(top)
-            top = top.left
+            top = top.left #traverses down the left branch of the tree
 
         else:
             if len(List) > 0:
                 top = List.pop()
                 print(top.value)
-                top = top.right
+                top = top.right #traverses down the right branch of the tree
 
             else:
                 treeprinted = True
