@@ -9,7 +9,6 @@ def reverse(string, reverseS):
         return reverse(string, reverseS)
 
 user = input("Please enter a string: ")
-stringarray = user.split()
+stringarray = user.split() #spits the users string up and saves each indivual word to a different index in an array
 reverseS = "The reverse of your string is:"
-
 reverse(stringarray, reverseS)

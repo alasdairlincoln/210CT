@@ -27,7 +27,8 @@ def sort_array(list):
         return list
 
 def binary_search(array, low, high):
-
+    '''Takes an array of integers and an interval. Searches through the array using 
+    the binary search method to find if a number is between the interval'''
     length = len(array)
 
     if length == 1:
@@ -40,8 +41,8 @@ def binary_search(array, low, high):
         return
 
     else:
-        if low <= array[mid] and high >= array[mid]:
-            for i in range (low , high):
+        if low <= array[mid] and high >= array[mid]:#works out if the interval is either side of the midpoint
+            for i in range (low , high):#iterates over the interval to see id there is a number in the array
                 if i in array:
                     print(True, "There is a number between",low, "and", high)
                     return
@@ -49,10 +50,10 @@ def binary_search(array, low, high):
                     pass
             print(False, "There is no number between",low, "and", high)
 
-        elif low < mid and high < mid:
+        elif low < mid and high < mid:#works out if the interval is lower than the mid point and calls the function with the lower half of the list
             return binary_search(array[0:mid], low, high)
 
-        elif low > mid and high > mid:
+        elif low > mid and high > mid:#works out if the interval is higher than the mid point and calls the function with the higher half of the list
             return binary_search(array[mid:], low, high)
 
         else:
