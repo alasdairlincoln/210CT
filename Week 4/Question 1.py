@@ -1,5 +1,3 @@
-from math import *
-
 def create_array():
     '''A function which asks the user to enter numbers into an array, the user
     can carry on entering numbers as long as they want. All the inputs are checked to
@@ -12,10 +10,11 @@ def create_array():
         try:
             user = int(input("Please enter a number into the array: "))
             array.append(user)
-
-        except ValueError:
             done = True
             return array
+
+        except ValueError:
+            pass
 
 def sort_array(list):
     '''Simply sorts the entered list to make sure it is sorted before
@@ -27,7 +26,7 @@ def sort_array(list):
         return list
 
 def binary_search(array, low, high):
-    '''Takes an array of integers and an interval. Searches through the array using 
+    '''Takes an array of integers and an interval. Searches through the array using
     the binary search method to find if a number is between the interval'''
     length = len(array)
 

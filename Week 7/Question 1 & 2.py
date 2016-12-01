@@ -118,5 +118,3 @@ if run == "y":
 
 else:
     '''Please enter any new code after this point'''
-
-'''--- Week 8 Question 1 ---'''

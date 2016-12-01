@@ -10,10 +10,11 @@ def create_array():
         try:
             user = int(input("Please enter a number into the array: "))
             array.append(user)
-
-        except ValueError:
             done = True
             return array
+
+        except ValueError:
+            pass
 
 def extract_asc(List):
     '''Takes a list of integers and splits it up into sublists of max length in ascending order'''

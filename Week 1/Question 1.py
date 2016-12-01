@@ -14,10 +14,11 @@ def create_array():
         try:
             user = int(input("Please enter a number into the array: "))
             array.append(user)
-
-        except ValueError:
             done = True
             return array
+
+        except ValueError:
+            pass
 
 array = create_array()
 
