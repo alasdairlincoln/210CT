@@ -1,0 +1,12 @@
+REVERSESTRING(string)
+    if length of string == 0
+      OUTPUT reverseString
+      return
+
+    else:
+      reverseString <- reverseString + pop from string
+      return REVERSESTRING(string)
+
+  string <- INPUT string
+  string <- array of string
+  call REVERSESTRING(string)
