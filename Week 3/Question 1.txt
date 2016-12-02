@@ -1,0 +1,15 @@
+def reverse(string, reverseS): #(1)
+    if len(string) == 0: #basecase to stop the recursive function #(1)
+        print(reverseS) #(1)
+        return #(1)
+    else: #(1)
+        reverseS = reverseS + " " + string.pop() #(1)
+        return reverse(string, reverseS) #(1)
+
+user = input("Please enter a string: ") #(1)
+stringarray = user.split() #(n)
+reverseS = "The reverse of your string is:" #(1)
+reverse(stringarray, reverseS) #(1)
+
+Run time =  n + 10
+Big O = O(n)

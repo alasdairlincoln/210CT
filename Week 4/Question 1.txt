@@ -1,0 +1,44 @@
+def binary_search(array, low, high): #(1)
+    length = len(array) #(1)
+
+    if length == 1: #(1)
+        mid = array[0] #(1)
+    else: #(1)
+        mid = int((length)/2) #(1)
+
+    if high < array[0] or low > array[length -1]: #(1)
+        print(False, "There is no number between", low, "and", high) #(1)
+        return #(1)
+
+    else: #(1)
+        if low <= array[mid] and high >= array[mid]: #(1)
+            for i in range (low , high): #(n)
+                if i in array: #(n)
+                    print(True, "There is a number between",low, "and", high) #(n)
+                    return #(n)
+                else: #(n)
+                    pass #(n)
+            print(False, "There is no number between",low, "and", high) #(1)
+
+        elif low < mid and high < mid: #(1)
+            return binary_search(array[0:mid], low, high) #(1)
+
+        elif low > mid and high > mid: #(1)
+            return binary_search(array[mid:], low, high) #(1)
+
+        else: #(1)
+            print(False, "There is no number between",low, "and",high) #(1)
+
+array = create_array() #(1)
+sortedArray = sort_array(array) #(1)
+lownumber, highnumber = lowAndhighInput() #(1)
+binary_search(sortedArray, lownumber, highnumber) #(1)
+
+
+
+'''For this question I only did the time complexity for the actual binary
+algorithm and left out other bits of the code such as getting the user
+to enter numbers into an array''
+
+Run time = 6n + 22
+Big O = O(n)

@@ -1,0 +1,37 @@
+CLASS Vertex()
+  value <- INPUT
+  connectedTo <- []
+
+  connected()
+    OUTPUT value "-" connectedto
+
+CLASS GRAPH(n)
+  verticies <- []
+
+  insert()
+    verticies.add(n.value)
+
+  createEdge(n1, n2)
+    if n1 not in n2.connectedTo
+      n1.connectedTo.add(n2)
+      n2.connectedTo.add(n1)
+
+  displayNodes()
+    OUTPUT verticies
+
+  displayConnected(n)
+    n.connected()
+
+g = GRAPH()
+v1 = Vertex(1)
+v2 = Vertex(2)
+v3 = Vertex(3)
+v4 = Vertex(4)
+v5 = Vertex(5)
+
+g.createEdge(v1, v2)
+g.createEdge(v2, v3)
+g.createEdge(v3, v4)
+g.createEdge(v4, v5)
+
+g.displayNodes()
