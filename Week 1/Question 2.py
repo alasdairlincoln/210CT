@@ -9,9 +9,9 @@ while userinput == False:
     except ValueError:
         print("Please enter a factorial number (don't include the !)")
 
-#while loop to
+#while loop to keep dividing the factnumber until its 1 or less
 while factnumber >= 1 :
     factnumber = factnumber/5
-    trailing = trailing + int(factnumber)
+    trailing = trailing + int(factnumber) #adds the remaining whole part of the factorial onto the trailing number
 
 print(trailing)
