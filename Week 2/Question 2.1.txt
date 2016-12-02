@@ -1,0 +1,42 @@
+from random import * #(1)
+newarray = [] #(1)
+used = [] #(1)
+
+def create_array(): #(1)
+    array = [] #(1)
+    done = False #(1)
+    print("To finish entering numbers please enter a non integer.") #(1)
+
+    while done == False: #(n)
+        try: #(n)
+            user = int(input("Please enter a number into the array: ")) #(n)
+            array.append(user) #(n)
+            done = True #(n)
+            return array #(n)
+
+        except ValueError: #(n)
+            pass #(n)
+
+array = create_array() #(1)
+
+print("This is the original array of numbers: ",array) #(1)
+
+for i in range(len(array)): #(n)
+    randin = True #(n)
+    while randin == True: #(n*n)
+        rand = randint(0,(len(array)-1)) #(n*n)
+        if rand in used: #(n*n)
+            randin = True #(n*n)
+        else: #(n*n)
+            used.append(rand) #(n*n)
+            randin = False #(n*n)
+    newarray.append(array[rand]) #(n)
+
+
+if array == newarray: #(1)
+    print("Error: List not shuffled, please try again.") #(1)
+
+print("This is the shuffled array of numbers",newarray) #(1)
+
+Run time = 7n^2 + 11n + 12
+Big O = O(n^2)

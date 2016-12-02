@@ -1,0 +1,18 @@
+userinput = False #(1)
+trailing = 0 #(1)
+
+while userinput  == False: #(n)
+    try: #(n)
+        factnumber = int(input("Please enter a factorial number: ")) #(n)
+        userinput = True #(n)
+    except ValueError: #(n)
+        print("Please enter a factorial number (don't include the !)") #(n)
+
+while factnumber >= 1 : #(n)
+    factnumber = factnumber/5 #(n)
+    trailing = trailing + int(factnumber) #(n)
+
+print(trailing) #(1)
+
+Run time = 9n + 3
+Big O = O(n)

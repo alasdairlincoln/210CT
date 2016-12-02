@@ -29,34 +29,40 @@ class Graph(object):
         V1.connected()
 
     def dijkstra(self, start, end):
+        '''Takes a start node and end node and works out the
+        shortest path between them'''
         node = start
         visited = []
 
         for n in self.verticies:
             vertice[n].tWeight = float('inf') # sets n.tWeight to infinty
 
-        node.tWeight = 0
+        node.tWeight = 0 #sets the tentative weight of the first node to 0
         while node != end:
-            for V in node.connectedTo:
-                v = vertice[V]
+            for V in node.connectedTo: #runs throgugh all the nodes which are connected to the current node
+                v = vertice[V] #sets v to a vertex as V is just an integer
 
-                if node.tWeight + self.edges[node.value,v.value] < v.tWeight:
-                    v.tWeight = node.tWeight + int(self.edges[v.value,node.value])
-                    v.pre = node
+                if node.tWeight + self.edges[node.value,v.value] < v.tWeight: #compares the weight to the current node to the old tentative
+                    v.tWeight = node.tWeight + int(self.edges[v.value,node.value]) #if the weight to the current node is less than the old weight then its saved
+                    v.pre = node #sets the nodes previous so that it can be used to backtrack the path
 
             visited.append(node)
             minimum = float('inf')
-            for n in self.verticies:
-                if vertice[n] not in visited and vertice[n].tWeight < minimum:
+            for n in self.verticies: #checks over every vertex in the graph
+                if vertice[n] not in visited and vertice[n].tWeight < minimum:#checks to see if the remaining verticies are better paths than the current one
                     node = vertice[n]
                     minimum = vertice[n].tWeight
 
+        #calculates and prints the path from the end node to the start node
         n = end
+        path = []
+        path.append(n.value)
         while n != start:
-            print(n.value)
             n = n.pre
+            path.append(n.value)
 
-        print(start.value)
+        print("The path from",end.value, "to",start.value, "is" ,path)
+
 
 class Vertex(object):
     '''Class for Vertex'''
@@ -103,4 +109,4 @@ g.displayNodes() #displays the nodes in the graph
 for i in range(1,11): #itterates over all nodes displaying what they're connected to
     g.displayConnected(vertice[i])
 
-g.dijkstra(vertice[3],vertice[10])
+g.dijkstra(vertice[6],vertice[8]) #runs dijkstra algorith from the first vertex to the second

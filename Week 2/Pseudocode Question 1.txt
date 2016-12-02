@@ -3,4 +3,4 @@ Input parameter to use in calculations
 rootnumb <- root(userparameter)
 rootnumb <- round down(rootnumb)
 squarenumb <- rootnumb * rootnumb
-print squarenumb
+OUTPUT squarenumb

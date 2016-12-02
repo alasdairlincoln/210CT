@@ -1,38 +1,68 @@
-matrixAddition(B,C)
-	for i in B
-		for j in i
-			d[i] <- j
+matrixAddition(B,C) #(1)
+'''B and C are two matrices of lists within a list which get added together'''
 
-	for i in C
-		for j in i
-			d[i] <- d[i] + j
+	p = 0 #used to store the index of the answer #(1)
+	for i in B #iterates over the list of lists #(n)
+		for j in i #iterates over the list of numbers #(n*n)
+			d[p] <- j #(n*n)
+			p = p + 1 #(n*n)
 
-return(d)
+	p = 0 #(1)
+	for i in C	#(n)
+		for j in i #(n*n)
+			d[p] <- d[p] + j #(n*n)
+			p = p + 1 #(n*n)
 
-matrixSubtraction(B,C)
-	for i in B
-		for j in i
-			d[i] <- j
+return(d) #(1)
 
-	for i in C
-		for j in i
-			d[i] <- d[i] - j
+matrixSubtraction(B,C) #(1)
+'''B and C are two matrices of lists within a list which get subtracted'''
 
-return(d)
+	p = 0 #(1)
+	for i in B #(n)
+		for j in i #(n*n)
+			d[p] <- j #(n*n)
+			p = p + 1 #(n*n)
 
-matrixMultiplication(B,C)
-	for i in B
-		for j in i
-			d[i] <- j
+	p = 0 #(1)
+	for i in C #(n)
+		for j in i #(n*n)
+			d[p] <- d[p] - j #(n*n)
+			p = p + 1 #(n*n)
 
-	for i in C
-		for j in i
-			d[i] <- d[i] * j
+return(d) #(1)
 
+matrixMultiplication(B,C) #(1)
+'''B and C are two matrices of lists within a list which get multiplied'''
 
-B <-- INPUT matrix1
-C <-- INPUT matrix2
+	p = 0 #(1)
+	for i in B #(n)
+		for j in i #(n*n)
+			d[p] <- j #(n*n)
+			p = p + 1 #(n*n)
 
-A <--  call matrixSubtraction((call matrixMultiplication(B,C)),(2*(call matrixAddition(B,C))
+	p = 0 #(1)
+	for i in C #(n)
+		for j in i #(n*n)
+			d[p] <- d[p] * j #(n*n)
+			p = p + 1 #(n*n)
 
-print A
+return(d) #(1)
+
+B <-- INPUT matrix1 #(1)
+C <-- INPUT matrix2 #(1)
+
+A <--  call matrixSubtraction((call matrixMultiplication(B,C)),(call matrixAddition(2,(call matrixAddition(B,C))) #24n^2 + 8n + 12
+
+OUTPUT A #(1)
+
+#---Run times ---#
+
+addition = matrixAddition(B,C) #6n^2 + 2n + 3
+subtraction = matrixSubtraction(B,C) #6n^2 + 2n + 3
+multiplication = matrixMultiplication(B,C) #6n^2 + 2n + 3
+
+#--- /Run times ---#
+
+Run time = 24n^2 + 8n + 15
+Big O = O(n*n)
