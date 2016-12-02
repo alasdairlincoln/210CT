@@ -12,6 +12,7 @@ class Graph(object):
     def createEdge(self, V1, V2, Weight):
         '''Takes 2 verticies and adds them to each others list of connected verticies'''
         self.edges[V1.value,V2.value] = Weight
+        self.edges[V2.value,V1.value] = Weight
 
         if V2.value not in V1.connectedTo:
             V1.connectedTo.append(V2.value)
@@ -30,31 +31,32 @@ class Graph(object):
     def dijkstra(self, start, end):
         node = start
         visited = []
-        for n in self.verticies:
-            vertice[n].tWeight = float("inf") # sets n.tWeight to infinty
 
-        start.tWeight = 0
+        for n in self.verticies:
+            vertice[n].tWeight = float('inf') # sets n.tWeight to infinty
+
+        node.tWeight = 0
         while node != end:
             for V in node.connectedTo:
                 v = vertice[V]
 
-                try:
-                    if node.tWeight + self.edges[v.value,node.value] < v.tWeight:
-                        v.tWeight = node.tWeight + int(self.edges[v.value,node.value])
-                        v.pre = node
-
-                except KeyError:
-                    if node.tWeight + self.edges[node.value,v.value] < v.tWeight:
-                        v.tWeight = node.tWeight + (self.edges[node.value,v.value])
-                        v.pre = node
+                if node.tWeight + self.edges[node.value,v.value] < v.tWeight:
+                    v.tWeight = node.tWeight + int(self.edges[v.value,node.value])
+                    v.pre = node
 
             visited.append(node)
-            minimum = float("inf")
+            minimum = float('inf')
             for n in self.verticies:
-                if n not in visited and vertice[n].tWeight < minimum:
-                    node = n
+                if vertice[n] not in visited and vertice[n].tWeight < minimum:
+                    node = vertice[n]
                     minimum = vertice[n].tWeight
 
+        n = end
+        while n != start:
+            print(n.value)
+            n = n.pre
+
+        print(start.value)
 
 class Vertex(object):
     '''Class for Vertex'''
@@ -81,6 +83,7 @@ for i in range(1,11):#for loop to insert the nodes into the graph
 g.createEdge(vertice[1],vertice[2], 5)
 g.createEdge(vertice[1],vertice[6], 4)
 g.createEdge(vertice[1],vertice[7], 1)
+g.createEdge(vertice[1],vertice[9], 9)
 g.createEdge(vertice[2],vertice[7], 3)
 g.createEdge(vertice[2],vertice[4], 5)
 g.createEdge(vertice[2],vertice[3], 12)
