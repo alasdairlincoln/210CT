@@ -1,0 +1,12 @@
+vowelRemoval(string, i)
+  vowels <- "a", "e","i","o","u"
+  vowelless <- emptylist
+
+  if i not in vowels
+    vowelless <- i
+  vowelRemoval(string, i +1)
+
+string <- INPUT
+string <- array of string
+i <- 0
+vowelRemoval(string, i)

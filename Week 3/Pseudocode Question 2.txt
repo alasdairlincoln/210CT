@@ -1,0 +1,19 @@
+isPrime(n, d)
+  if n < 1 or n = 1
+    return False
+
+  elif n < 3 or n = 3
+    return True
+
+  if d = 1
+    return True
+
+  if n mod d = 0
+    return False
+
+  else
+    isPrime(n, d-1)
+
+n <- INPUT number
+d <- n -1
+isPrime(n, d)
